@@ -48,11 +48,72 @@
 
 // --------- TRANSVERSING THE NODE--------------------->
 //parentNode
-// let itemList = document.querySelector("#items");
+let itemList = document.querySelector("#items");
 // console.log(itemList.parentNode);
 // itemList.parentNode.style.background = "#FE937C";
 
 //parentElement
-let itemList = document.querySelector("#items");
-console.log(itemList.parentElement);
-itemList.parentElement.style.background = "#FE937C";
+// let itemList = document.querySelector("#items");
+// console.log(itemList.parentElement);
+// itemList.parentElement.style.background = "#FE937C";
+
+//childenNode
+// let itemList = document.querySelector("#items");
+// console.log(itemList.children);
+// itemList.children[1].style.background = "#E2FC60";
+
+//firstChild
+// console.log(itemList.firstChild);
+//firstChildren
+// itemList.firstElementChild.style.fontWeight = "bold";
+
+//lastChild
+// console.log(itemList.lastChild);
+//lastElementChild
+// itemList.lastElementChild.textContent = "This is updated text";
+// itemList.lastElementChild.style.color = "red"
+
+//nextSibling
+// console.log(itemList.nextSibling);
+// itemList.nextSibling.textContent = "no";
+// console.log(itemList.nextElementSibling);
+
+//previousSibling
+// console.log(itemList.previousSibling);
+// itemList.previousSibling.textContent = "yoo";
+// itemList.previousElementSibling.style.color = "blue";
+
+//createElement
+
+//create a div
+let newDiv = document.createElement("div");
+// add a class
+// newDiv.className = "hello-class";
+
+// add an id
+newDiv.id = "hello-id";
+//ad attributes
+newDiv.setAttribute("title", "Hello Div");
+
+//create a text node
+let newDivText = document.createTextNode("Hello World");
+newDiv.appendChild(newDivText);
+console.log(newDiv);
+
+let container = document.querySelector(".container");
+let h1 = document.querySelector("#header-title");
+// container.appendChild(newDiv);
+container.insertBefore(newDiv, h1);
+
+//------------create a list-----------
+let singleItem = document.createElement("li");
+singleItem.className = "list-group-item";
+
+// singleItem.innerText = "Hello World";
+
+let newItemText = document.createTextNode("Hello World");
+singleItem.appendChild(newItemText);
+// console.log(singleItem);
+
+let firstItem = document.querySelector(".list-group-item:nth-child(1)");
+itemList.insertBefore(singleItem, firstItem);
