@@ -30,18 +30,29 @@
 
 // ---------------------------TASK 6-----------------------
 
-let secondItem = document.querySelector(".list-group-item:nth-child(2)");
-// console.log(s.innerHTML);
-secondItem.style.background = "green";
-let thirdItem = document.querySelector(".list-group-item:nth-child(3)");
-thirdItem.style.display = "none";
+// let secondItem = document.querySelector(".list-group-item:nth-child(2)");
+// // console.log(s.innerHTML);
+// secondItem.style.background = "green";
+// let thirdItem = document.querySelector(".list-group-item:nth-child(3)");
+// thirdItem.style.display = "none";
 
-let listItem = document.querySelectorAll(".list-group-item");
-console.log(listItem);
-listItem[1].style.color = "#32CD32";
+// let listItem = document.querySelectorAll(".list-group-item");
+// console.log(listItem);
+// listItem[1].style.color = "#32CD32";
 
 // 2nd method
 // let odd = document.querySelectorAll('li:nth-child(odd)');
 // for(let i = 0; i < odd.length; i++){
 //     odd[i].style.background = "#228B22"
 // }
+
+// --------- TRANSVERSING THE NODE--------------------->
+//parentNode
+// let itemList = document.querySelector("#items");
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.background = "#FE937C";
+
+//parentElement
+let itemList = document.querySelector("#items");
+console.log(itemList.parentElement);
+itemList.parentElement.style.background = "#FE937C";
