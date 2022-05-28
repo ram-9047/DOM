@@ -30,19 +30,18 @@
 
 // ---------------------------TASK 6-----------------------
 
-// let secondItem = document.querySelector(".list-group-item:nth-child(2)");
-// // console.log(s.innerHTML);
-// secondItem.style.background = "green";
-// let thirdItem = document.querySelector(".list-group-item:nth-child(3)");
-// thirdItem.style.display = "none";
+let secondItem = document.querySelector(".list-group-item:nth-child(2)");
+// console.log(s.innerHTML);
+secondItem.style.background = "green";
+let thirdItem = document.querySelector(".list-group-item:nth-child(3)");
+thirdItem.style.display = "none";
 
 let listItem = document.querySelectorAll(".list-group-item");
 console.log(listItem);
 listItem[1].style.color = "#32CD32";
 
-for (let i = 0; i < listItem.length; i++) {
-  if (i % 2 == 0) {
-    // continue;
-    listItem[i].style.background = "#228B22";
-  }
-}
+// 2nd method
+// let odd = document.querySelectorAll('li:nth-child(odd)');
+// for(let i = 0; i < odd.length; i++){
+//     odd[i].style.background = "#228B22"
+// }
