@@ -18,12 +18,21 @@
 
 // --------------------------TASK 5 ---------------------------
 
-let li = document.getElementsByTagName("li");
-console.log(li);
-li[2].innerHTML = "Changed using Tag Name";
-li[2].style.fontSize = "1.2rem";
-li[2].style.color = "purple";
+// let li = document.getElementsByTagName("li");
+// console.log(li);
+// li[2].innerHTML = "Changed using Tag Name";
+// li[2].style.fontSize = "1.2rem";
+// li[2].style.color = "purple";
 
-for (let i = 0; i < li.length; i++) {
-  li[i].style.background = "#817D8B";
-}
+// for (let i = 0; i < li.length; i++) {
+//   li[i].style.background = "#817D8B";
+// }
+
+// ---------------------------TASK 6-----------------------
+
+let secondItem = document.querySelector(".list-group-item:nth-child(2)");
+// console.log(s.innerHTML);
+secondItem.style.background = "green";
+let thirdItem = document.querySelector(".list-group-item:nth-child(3)");
+thirdItem.style.display = "none";
+
