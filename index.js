@@ -48,7 +48,7 @@
 
 // --------- TRANSVERSING THE NODE--------------------->
 //parentNode
-let itemList = document.querySelector("#items");
+// let itemList = document.querySelector("#items");
 // console.log(itemList.parentNode);
 // itemList.parentNode.style.background = "#FE937C";
 
@@ -86,34 +86,89 @@ let itemList = document.querySelector("#items");
 //createElement
 
 //create a div
-let newDiv = document.createElement("div");
+// let newDiv = document.createElement("div");
 // add a class
 // newDiv.className = "hello-class";
 
 // add an id
-newDiv.id = "hello-id";
+// newDiv.id = "hello-id";
 //ad attributes
-newDiv.setAttribute("title", "Hello Div");
+// newDiv.setAttribute("title", "Hello Div");
 
 //create a text node
-let newDivText = document.createTextNode("Hello World");
-newDiv.appendChild(newDivText);
-console.log(newDiv);
+// let newDivText = document.createTextNode("Hello World");
+// newDiv.appendChild(newDivText);
+// console.log(newDiv);
 
-let container = document.querySelector(".container");
-let h1 = document.querySelector("#header-title");
-// container.appendChild(newDiv);
-container.insertBefore(newDiv, h1);
+// let container = document.querySelector(".container");
+// let h1 = document.querySelector("#header-title");
+// // container.appendChild(newDiv);
+// container.insertBefore(newDiv, h1);
 
-//------------create a list-----------
-let singleItem = document.createElement("li");
-singleItem.className = "list-group-item";
+// //------------create a list-----------
+// let singleItem = document.createElement("li");
+// singleItem.className = "list-group-item";
 
-// singleItem.innerText = "Hello World";
+// // singleItem.innerText = "Hello World";
 
-let newItemText = document.createTextNode("Hello World");
-singleItem.appendChild(newItemText);
-// console.log(singleItem);
+// let newItemText = document.createTextNode("Hello World");
+// singleItem.appendChild(newItemText);
+// // console.log(singleItem);
 
-let firstItem = document.querySelector(".list-group-item:nth-child(1)");
-itemList.insertBefore(singleItem, firstItem);
+// let firstItem = document.querySelector(".list-group-item:nth-child(1)");
+// itemList.insertBefore(singleItem, firstItem);
+
+//-------------------------TASK 8 --------------------
+let form = document.getElementById("addForm");
+let itemList = document.getElementById("items");
+let filter = document.getElementById("filter");
+//-------form submit event-------
+form.addEventListener("submit", addItem);
+///------Delete Event-------
+itemList.addEventListener("click", removeItem);
+
+//------ add item in the list-----
+function addItem(e) {
+  e.preventDefault();
+
+  //----get input value form input
+  let newItem = document.getElementById("item");
+  //-----create a new li----
+  let li = document.createElement("li");
+  //------ add class name to that li
+  li.className = "list-group-item";
+  ///-----add the input value to li
+  li.appendChild(document.createTextNode(newItem.value));
+
+  //---- create a delete button
+  let delButton = document.createElement("button");
+  //--- add class name to button
+  delButton.className = "btn btn-danger btn-sm float-right delete";
+  // --- add delete symbol to the button
+  delButton.appendChild(document.createTextNode("X"));
+
+  //---------create a EDIT button
+  let editBtn = document.createElement("button");
+  editBtn.className = "btn btn-sm float-right";
+  editBtn.style.background = "green";
+  editBtn.style.color = "white";
+  editBtn.style.marginLeft = "0.5rem";
+  editBtn.appendChild(document.createTextNode("Edit"));
+  li.appendChild(editBtn);
+
+  //---- add delete button in the list li
+  li.appendChild(delButton);
+  // add the li to the ul
+  itemList.appendChild(li);
+}
+
+// Remove Item
+function removeItem(e) {
+  e.preventDefault();
+  if (e.target.classList.contains("delete")) {
+    if (confirm("Are You Sure?")) {
+      let li = e.target.parentElement;
+      itemList.removeChild(li);
+    }
+  }
+}
