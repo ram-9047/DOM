@@ -119,56 +119,79 @@
 // itemList.insertBefore(singleItem, firstItem);
 
 //-------------------------TASK 8 --------------------
-let form = document.getElementById("addForm");
-let itemList = document.getElementById("items");
-let filter = document.getElementById("filter");
-//-------form submit event-------
-form.addEventListener("submit", addItem);
-///------Delete Event-------
-itemList.addEventListener("click", removeItem);
+// let form = document.getElementById("addForm");
+// let itemList = document.getElementById("items");
+// let filter = document.getElementById("filter");
+// //-------form submit event-------
+// form.addEventListener("submit", addItem);
+// ///------Delete Event-------
+// itemList.addEventListener("click", removeItem);
 
-//------ add item in the list-----
-function addItem(e) {
-  e.preventDefault();
+// //------ add item in the list-----
+// function addItem(e) {
+//   e.preventDefault();
 
-  //----get input value form input
-  let newItem = document.getElementById("item");
-  //-----create a new li----
-  let li = document.createElement("li");
-  //------ add class name to that li
-  li.className = "list-group-item";
-  ///-----add the input value to li
-  li.appendChild(document.createTextNode(newItem.value));
+//   //----get input value form input
+//   let newItem = document.getElementById("item");
+//   //-----create a new li----
+//   let li = document.createElement("li");
+//   //------ add class name to that li
+//   li.className = "list-group-item";
+//   ///-----add the input value to li
+//   li.appendChild(document.createTextNode(newItem.value));
 
-  //---- create a delete button
-  let delButton = document.createElement("button");
-  //--- add class name to button
-  delButton.className = "btn btn-danger btn-sm float-right delete";
-  // --- add delete symbol to the button
-  delButton.appendChild(document.createTextNode("X"));
+//   //---- create a delete button
+//   let delButton = document.createElement("button");
+//   //--- add class name to button
+//   delButton.className = "btn btn-danger btn-sm float-right delete";
+//   // --- add delete symbol to the button
+//   delButton.appendChild(document.createTextNode("X"));
 
-  //---------create a EDIT button
-  let editBtn = document.createElement("button");
-  editBtn.className = "btn btn-sm float-right";
-  editBtn.style.background = "green";
-  editBtn.style.color = "white";
-  editBtn.style.marginLeft = "0.5rem";
-  editBtn.appendChild(document.createTextNode("Edit"));
-  li.appendChild(editBtn);
+//   //---------create a EDIT button
+//   let editBtn = document.createElement("button");
+//   editBtn.className = "btn btn-sm float-right";
+//   editBtn.style.background = "green";
+//   editBtn.style.color = "white";
+//   editBtn.style.marginLeft = "0.5rem";
+//   editBtn.appendChild(document.createTextNode("Edit"));
+//   li.appendChild(editBtn);
 
-  //---- add delete button in the list li
-  li.appendChild(delButton);
-  // add the li to the ul
-  itemList.appendChild(li);
-}
+//   //---- add delete button in the list li
+//   li.appendChild(delButton);
+//   // add the li to the ul
+//   itemList.appendChild(li);
+// }
 
-// Remove Item
-function removeItem(e) {
-  e.preventDefault();
-  if (e.target.classList.contains("delete")) {
-    if (confirm("Are You Sure?")) {
-      let li = e.target.parentElement;
-      itemList.removeChild(li);
+// // Remove Item
+// function removeItem(e) {
+//   e.preventDefault();
+//   if (e.target.classList.contains("delete")) {
+//     if (confirm("Are You Sure?")) {
+//       let li = e.target.parentElement;
+//       itemList.removeChild(li);
+//     }
+//   }
+// }
+
+//-----------------------TASK - 9 --------FILTER----------------
+
+//------filter event----
+filter.addEventListener("keyup", filterItems);
+
+// Filter Items
+function filterItems(e) {
+  //convert the input to lower case
+  let text = e.target.value.toLowerCase();
+
+  //get all the li items
+  let items = document.getElementsByTagName("li");
+  //convert items in array
+  Array.from(items).forEach((item) => {
+    let itemName = item.firstChild.textContent;
+    if (itemName.toLowerCase().indexOf(text) != -1) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
     }
-  }
+  });
 }
